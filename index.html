@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./scripts/css/styles.css">
+
+        <title> SYCL @ CMS </title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">SYCL for event reconstruction at CMS</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+<!--                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+-->                    <li class="nav__item"><a href="#heterogeneous" class="nav__link">Heterogeneous computing</a></li>
+                        <li class="nav__item"><a href="#portability" class="nav__link">Why SYCL?</a></li>
+                        <li class="nav__item"><a href="#porting" class="nav__link">CUDA2SYCL</a></li>
+                        <li class="nav__item"><a href="#performance" class="nav__link">Performance</a></li>
+                        <li class="nav__item"><a href="#link" class="nav__link">Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home section " id="home">
+		   <h1 class="home__title"><br>Experience in SYCL/oneAPI <br>for event reconstruction at the CMS experiment</h1>
+	    </section>
+
+            <!--===== Heterogeneous =====-->
+            <section class="about section " id="heterogeneous">
+                <h2 class="section-title">Heterogenous computing at the CMS experiment</h2>
+                <div class="about__container bd-grid">
+                    <div>
+                        <p class="about__text">In the High-Luminosity phase of the LHC (HL-LHC) the accelerator will reach an instantaneous luminosity of 7 × 10<sup>34</sup> cm<sup>-2</sup>s<sup>-1</sup> with an average pileup of 200 proton-proton collisions. This will lead to a computational challenge for the online and offline reconstruction software that have been developed. To face this complexity CMS has decided to use heterogeneous computing, meaning that different types of processors will be used instead of CPUs only.<br>
+The CMS experiment has equipped the HLT with some GPUs and so heterogeneous computing has already been used in production during Run-3 for:
+<ol>
+  <li>pixel unpacking, local reconstruction, tracks and vertices</li>
+  <li>ECAL unpacking and local reconstruction</li>
+  <li>HCAL local reconstruction</li>
+</ol>
+This has resulted in:
+<ul>
+  <li>higher throughput</li>
+  <li>better physics performance (algorithms redesigned when written for GPUs)</li>
+</ul>
+	The goal for the LH-LHC will be to offload to computing accelerators at least 50% of the HLT in Run-4 and 80% in Run-5.<p>           
+                    </div>                                   
+                </div>                                   
+            </section>
+            <!--===== Portability =====-->
+            <section class="about section " id="portability">
+		    <h2 class="section-title">Performance portability libraries</h2>
+                <div class="about__container bd-grid">
+                    <div>
+                        <p class="about__text">Currently the code executed on GPUs is written in CUDA, that is specific for NVIDIA GPUs, and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce code-duplication that is not easily mainteinable. A solution is the use of performance portability libraries, that allow the programmer to write a single source code and then to execute it on different architectures. 
+The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. despite this, studies on these libraries are still ongoing and other solutions are being explored.
+One possibility is to use Data Parallel C++ (DPC++), an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== Porting =====-->
+            <section class="about section " id="porting">
+                <h2 class="section-title">From CUDA to SYCL</h2>
+                <div class="about__container bd-grid">
+                    <div>
+Currently the code executed on GPUs is written in CUDA, that is specific for NVIDIA GPUs, and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce code-duplication that is not easily mainteinable. A solution is the use of performance portability libraries, that allow the programmer to write a single source code and then to execute it on different architectures.
+The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. despite this, studies on these libraries are still ongoing and other solutions are being explored.
+One possibility is to use Data Parallel C++ (DPC++), an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.</div>                                   
+                </div>
+            </section>
+
+            <!--===== Performance =====-->
+            <section class="about section " id="performance">
+                <h2 class="section-title">Performance and comparison</h2>
+                <div class="about__container bd-grid">
+                    <div>
+                        <p class="about__text">Currently the code executed on GPUs is written in CUDA, that is specific for NVIDIA GPUs, and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce code-duplication that is not easily mainteinable. A solution is the use of performance portability libraries, that allow the programmer to write a single source code and then to execute it on different architectures.
+The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. despite this, studies on these libraries are still ongoing and other solutions are being explored.
+One possibility is to use Data Parallel C++ (DPC++), an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== References and links =====-->
+            <section class="about section " id="link">
+                <h2 class="section-title">References</h2>
+                <div class="about__container bd-grid">
+                    <div>
+                        <p class="about__text">Currently the code executed on GPUs is written in CUDA, that is specific for NVIDIA GPUs, and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce code-duplication that is not easily mainteinable. A solution is the use of performance portability libraries, that allow the programmer to write a single source code and then to execute it on different architectures.
+The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. despite this, studies on these libraries are still ongoing and other solutions are being explored.
+One possibility is to use Data Parallel C++ (DPC++), an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.</p>
+                    </div>
+                </div>
+            </section>
+            <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Authors</p>
+	    <p class="about__text"> elenco autori </p>
+            <div class="footer__social">
+                <a href="https://github.com/cms-patatrack" class="footer__icon"><i class='bx bxl-github' ></i></a>
+            </div>
+        </footer>
+	
+	<!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="./scripts/js/main.js"></script>
+   
+    </body>
+</html>
