@@ -11,15 +11,18 @@
     <body>
         <!--===== HEADER =====-->
         <header class="l-header">
+            <img src="img/cms_experiment_small.jpg" alt="Simply Easy Learning" width="2.5rem" height="2.5rem">
             <nav class="nav bd-grid">
+                <div class="nav__img">
+                    <img src="./img/logo.png" alt="">
+                </div>
                 <div>
                     <a href="#" class="nav__logo">SYCL for event reconstruction at CMS</a>
                 </div>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-<!--                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
--->                    <li class="nav__item"><a href="#heterogeneous" class="nav__link">Heterogeneous computing</a></li>
+                        <li class="nav__item"><a href="#heterogeneous" class="nav__link">Heterogeneous computing</a></li>
                         <li class="nav__item"><a href="#portability" class="nav__link">Performance portability</a></li>
                         <li class="nav__item"><a href="#porting" class="nav__link">CUDA2SYCL</a></li>
                         <li class="nav__item"><a href="#performance" class="nav__link">Performance</a></li>
@@ -36,7 +39,7 @@
         <main class="l-main">
             <!--===== HOME =====-->
             <section class="home section " id="home">
-		   <h1 class="home__title"><br>Experience in SYCL/oneAPI <br>for event reconstruction at the CMS experiment</h1>
+		   <h1 class="home__title">Experience in SYCL/oneAPI<br>for event reconstruction<br>at the CMS experiment</h1>
 	    </section>
 
             <!--===== Heterogeneous =====-->
@@ -44,35 +47,39 @@
                 <h2 class="section-title">Heterogenous computing at the CMS experiment</h2>
                 <div class="about__container bd-grid">
                     <div>
-                        <p class="about__text">I
-                            In the High-Luminosity phase of the LHC (HL-LHC) the accelerator will reach an instantaneous luminosity of 7 × 10<sup>34</sup> cm<sup>-2</sup>s<sup>-1</sup> with an average pileup of 200 proton-proton collisions. This will lead to a computational challenge for the online and offline reconstruction software that have been developed. To face this complexity CMS has decided to use heterogeneous computing, meaning that different types of processors will be used instead of CPUs only.<br>
-                            The CMS experiment has equipped the HLT with some GPUs and so heterogeneous computing has already been used in production during Run-3 for:
+                        <p class="about__text">
+                            In the High-Luminosity phase of the LHC (HL-LHC) the accelerator will reach an instantaneous luminosity of 7 × 10<sup>34</sup> cm<sup>-2</sup>s<sup>-1</sup> with an average pileup of 200 proton-proton collisions. This will lead to a <strong>computational challenge</strong> for the online and offline reconstruction software that have been developed. To face this complexity CMS has decided to use <strong>heterogeneous computing</strong>, meaning that different types of architectures will be used instead of CPUs only.<br>
+                            To accomplish this task, before the start of Run-3 the CMS experiment has equipped the HLT nodes with NVIDIA Tesla T4 GPUs that are currently used in production for:
                             <ol>
                               <li>pixel unpacking, local reconstruction, tracks and vertices</li>
                               <li>ECAL unpacking and local reconstruction</li>
                               <li>HCAL local reconstruction</li>
                             </ol>
-                            This has resulted in:
+                            This choice has resulted in:
                             <ol>
-                              <li>higher throughput</li>
-                              <li>better physics performance (algorithms redesigned when written for GPUs)</li>
-                            <ol>
+                              <li><strong>higher throughput</strong> thanks to the use of an accelerator;</li>
+                              <li><strong>better physics performance</strong> because the algorithms have been redesigned while being written for GPUs).</li>
+                            </ol>
                             The goal for the LH-LHC will be to offload to computing accelerators at least 50% of the HLT in Run-4 and 80% in Run-5.
                         </p>           
-                    </div>                                   
+                    </div>  
                 </div>                                   
             </section>
             <!--===== Portability =====-->
             <section class="about section " id="portability">
 		    <h2 class="section-title">Performance portability libraries</h2>
                 <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="./img/dpcpp.png" alt="">
+                    </div>   
                     <div>
                         <p class="about__text">
-                            Currently the code executed on GPUs is written in CUDA, that is specific for NVIDIA GPUs, and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce code-duplication that is not easily mainteinable. A solution is the use of performance portability libraries, that allow the programmer to write a single source code and then to execute it on different architectures.<br>
-The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. (porting /migration verrà fatto nei prossimi mesi) despite this, studies on these libraries are still ongoing and other solutions are being explored.<br>
-One possibility is to use Data Parallel C++ (DPC++), an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.
+                            Currently the code executed on GPUs is written in CUDA that is specific for NVIDIA GPUs and through a compatibility layer is able to run entirely on CPUs if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce <strong>code-duplication</strong> that is <strong>not easily mainteinable</strong>. A solution is the use of performance portability libraries, that allow the programmer to write a <strong>single source code</strong> and then to execute it on different architectures.<br>
+                            The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. The migration from CUDA to Alpaka at the HLT will be performed in the next months. Despite this, studies on these kind of libraries are still ongoing and other solutions are being explored.<br>
+                            One possibility is to use <strong>Data Parallel C++ (DPC++)</strong>, an open source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer mainteined by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.<br>
+                            At the moment DPC++ supports officially Intel CPUs, GPUs and FPGAs. The support for NVIDIA and AMD GPUs is ongoing, but it's still possible to use them with the Intel's LLVM Compiler. 
                         </p>           
-                    </div>                                   
+                    </div>                           
                 </div>
             </section>
 
@@ -82,54 +89,74 @@ One possibility is to use Data Parallel C++ (DPC++), an open source compiler pro
                 <div class="about__container bd-grid">
                     <div>
                         <p class="about__text">
-                            SYCL/oneAPI so far has been tested with the porting from CUDA of two algorithms:
-<ol>
-  <li>CLUE (CLUstering of Energy): a fast parallel clustering algorithm for high granularity calorimeters</li>
-  <li>pixeltrack: a heterogeneous implementation of pixel tracks and vertices reconstruction chain</li>
-</ol>
-Some of the difference between CUDA and SYCL that we noticed while porting the code are:
-<ol>
-  <li>the use of different terms (e.g. thread, block, grid become work-item, work-group, Nd range) or of the same term but with a different meaning</li>
-  <li>the need to avoid hardware specific code, to enhance its portability</li>
-  <li>each device has a queue (analog of a CUDA stream) that is needed to launch kernels and to do memory operations</li>
-  <li>same features like pinned memory are not explicitly available in SYCL as they are managed by the SYCl runtime</li>
-</ol>
-To ease the process of porting the code from CUDA to SYCL, Intel made available the Data Parallel Compatibility Tool (DPCT). It was used partially at the beginning to gain confidence with the SYCL language and turned out to be helpful even though the code still needed revision after that.
+                            Since as already said the first version of the code that is supposeed to run on GPU was written in CUDA, the first step in the study of SYCL/oneAPI consisted in the porting from CUDA to SYCL of two algorithms:
+                            <ol>
+                                <li><a href="#clue"><strong>CLUE (CLUstering of Energy)</strong></a>: a fast parallel clustering algorithm for high granularity calorimeters that follows a density-based approach to link each hit with its nearest neighbour with higher energy;</li>
+                                <li><a href="#pixeltrack"><strong>pixeltrack</strong></a>: a heterogeneous implementation of pixel tracks and vertices reconstruction chain, starting from the detector raw data, creating clusters, then n-tuplets that then are fitted to obtain tracks and at last those are used to reconstruct the vertices.</li>
+                            </ol>
+                            To ease the process of porting the code from CUDA to SYCL, Intel made available the Data Parallel Compatibility Tool (DPCT). It was used partially at the beginning to gain confidence with the SYCL language and turned out to be helpful even though the code still needed revision after that.
+                            During the porting we had the possibility to explore SYCL and to compare it with CUDA. The main logic is the same, but there are some <strong>differences</strong>:
+                            <ol>
+                                <li>each device is associated to a queue (analog of a CUDA stream) that is needed to launch kernels and to do all the memory operations;</li>
+                                <li>the use of different terms (e.g. thread, block, grid become work-item, work-group, Nd range) or of the same term but with a different meaning;</li>
+                                <li>the need to avoid hardware specific code, to enhance its portability;</li>
+                                <li>same features like pinned memory are not explicitly available in SYCL as they are managed by the SYCl runtime.</li>
+                            </ol>
+                            These differences are mainly related to the fact that SYCL has to stay on a more high-level point to ensure portability between devices. For example, regarding the first point, the queue is compulsory for SYCL to know on which device the operation has to be executed, because in principle different types of accelerators can be used inside the same code. This is not the case in CUDA, so additional attention must be posed on that during the porting.
                         </p>
-                    </div>                                   
+                    </div> 
+                    <div class="about__img">
+                        <img src="./img/reco_steps.png" alt="">
+                    </div>                                      
                 </div>
             </section>
 
             <!--===== Performance =====-->
             <section class="about section " id="performance">
-                <h2 class="section-title">Performance and comparison</h2>
+                <h2 class="section-title">Performance tests</h2>
                 <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="./img/performanceT4.png" alt="">
+                    </div>                                 
                     <div>
                         <p class="about__text">
-                            The porting of pixeltrack is still ongoing, but we are able to run successfully the code both on Intel CPUs and Intel GPUs. On the other hand CLUE has been fully ported and tested. We run the algorithm also on NVIDIA GPUs and compared its performance with native CUDA and Alpaka.
-The target was a Tesla T4 and the results are really promising, showing that SYCL is able to reach the same throughput of native CUDA.
+                            The porting of pixeltrack is still ongoing, but we are able to run successfully the code both on Intel CPUs and Intel GPUs. On the other hand CLUE has been fully ported and tested. At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the acceletor with respect to the traditional processor. The plot shows the throughput for an increasing number of points per layers/nOfThreads?<br> 
+                            Then we tested it also on NVIDIA GPUs and compared its performance with native CUDA and Alpaka.
+                            The target was a Tesla T4 and in this case the plot shows the throughput with different numbers of threads. The data used is ?.<br>
+                            The results look really promising, showing that SYCL is able to reach the same throughput of native CUDA.<br>
+                            #conclusion and further tests will be done
                         </p>           
-                    </div>                                   
+                    </div>  
                 </div>
             </section>
 
             <!--===== References and links =====-->
             <section class="about section " id="link">
                 <h2 class="section-title">References</h2>
-                <div class="about__container bd-grid">
                     <div>
-                        <p class="about__text">
-                            pixeltrack and heteroclue repo+paper
-                            patatrack site - guide
-                            dpcpp book
+                        <p>
+                            <ol>
+                                <li id="pixeltrack">pixeltrack-standalone - <a href="https://github.com/AuroraPerego/pixeltrack-standalone/tree/dev">GitHub repo</a></li>
+                                <li>pixeltrack-standalone - <a href="https://arxiv.org/pdf/2008.13461.pdf">paper</a></li>
+                                <li id="clue">heterogeneous clue - <a href="https://github.com/cms-patatrack/heterogeneous-clue">GitHub repo</a></li>
+                                <li>heterogeneous clue - <a href="https://arxiv.org/pdf/2001.09761.pdf">paper</a></li>
+                                <li><a href="https://patatrack.web.cern.ch/patatrack/wiki/cuda2sycl_rules/">porting CUDA to SYCL guide</a></li>
+                                <li><a href="https://link.springer.com/book/10.1007/978-1-4842-5574-2">DataParallel C++</a></li>
+                            </ol>
                         </p>
                     </div>
-                </div>
             </section>
             <!--===== FOOTER =====-->
         <footer class="footer">
             <p class="footer__title">Authors</p>
-	    <p class="about__text"> authors </p>
+	    <p class="about__text"> Nikolaos Andriotis<sup>1</sup>, Andrea Bocci<sup>2</sup>, Tony Di Pilato<sup>3</sup>, Luca Ferragina<sup>4</sup>, Felice Pantaleo<sup>2</sup>, Aurora Perego<sup>5</sup>, Juan Jose Olivera Loyola, Wahid Redjeb<sup>6</sup><br>
+            <sup>1</sup>Barcelona Supercomputing Center, Spain<br>
+            <sup>2</sup>CERN<br>
+            <sup>3</sup>??<br>
+            <sup>4</sup>University of Bologna, Italy<br>
+            <sup>5</sup>University of Milano Bicocca, Italy<br>
+            <sup>6</sup>RWTH Aachen University, Germany<br>
+        </p>
             <div class="footer__social">
                 <a href="https://github.com/cms-patatrack" class="footer__icon"><i class='bx bxl-github' ></i></a>
             </div>
