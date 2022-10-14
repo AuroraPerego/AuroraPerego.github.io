@@ -115,7 +115,7 @@ img{
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: rgb(146, 222, 255);
+  background-color: #92DEFF;
   box-shadow: 0 1px 4px rgba(146,161,176,.15);
 }
 
@@ -128,8 +128,9 @@ img{
   font-weight: var(--font-semi);
 }
 .nav__img img{
-  height: 50px;
+  height: var(--header-height);
 }
+
 @media screen and (max-width: 800px){
   .nav__menu{
     position: fixed;
@@ -161,7 +162,7 @@ img{
   background-color: var(--first-color);
 }
 .nav__logo{
-  color: #0044ff;
+  color: var(--first-color);
 }
 .nav__toggle{
   color: var(--second-color);
@@ -199,16 +200,16 @@ img{
   height: 300px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .home__title{
     font-size: var(--big-font-size);
     margin-bottom: var(--mb-5);
     text-align: center;
-    background-image: url(../../img/cms_experiment_small.jpg);
+    background-image: url(../../img/cms_experiment2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: auto;
+    height: 150px;
   }
 }
 .home__title-color{
@@ -349,7 +350,6 @@ img{
   background-color: var(--second-color);
   color: #fff;
   text-align: center;
-  font-weight: var(--font-semi);
   padding: 2rem 0;
 }
 .footer__title{
