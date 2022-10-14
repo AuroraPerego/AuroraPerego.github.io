@@ -77,7 +77,7 @@
                             Currently, the code to be executed on GPUs is written in CUDA specifically for NVIDIA GPUs. Through a custom-built compatibility layer, the same code can run entirely on CPUs, if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce <strong>code-duplication</strong> that is <strong>not easily maintainable</strong>. A possible solution is the use of performance portability libraries, that allow the programmer to write a <strong>single source code</strong> which can be executed on different architectures.<br>
                             The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. The migration from CUDA to Alpaka at the HLT will be performed in the next few months. Despite this, studies on this kind of libraries are still ongoing and other solutions are being explored.<br>
                             One possibility is to use <strong>Data Parallel C++ (DPC++)</strong>, an open-source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer maintained by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.<br>
-                            At the moment DPC++ officially supports Intel CPUs, GPUs and FPGAs. The support for NVIDIA and AMD GPUs is in active development, though but it's still possible to use them with the Intel's LLVM Compiler. 
+                            At the moment DPC++ officially supports CPUs, Intel GPUs and Intel FPGAs. The support for NVIDIA and AMD GPUs is in active development, though but it's still possible to use them with the Intel's LLVM Compiler. 
                         </p>           
                     </div>                           
                 </div>
@@ -116,7 +116,7 @@
                 <h2 class="section-title">Performance tests and conclusions</h2>
                 <div class="about__container bd-grid">
                     <div class="about__img">
-                        <img src="./img/performanceT4.png" alt="">
+                        <img src="./img/performance_T4.png" alt="">
                     </div>                                 
                     <div>
                         <p class="about__text">
@@ -124,7 +124,7 @@
                             To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
                             The plots show the total throughput for different numbers of concurrent threads/streams.<br>
                             At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor. Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka.<br>
-                            The results look really promising, showing that SYCL is able to reach the same throughput of native CUDA.<br>
+                            The results look really promising, showing that SYCL is able to reach an higher throughput than native CUDA.<br>
                             <br>
                             To conclude, heterogeneous computing can be a solution to face the computational challenge and a compatibility layer will help in reproducibility of the results and code maintainability. SYCL is promising from this point of view and the first tests show a really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
                         </p>           
