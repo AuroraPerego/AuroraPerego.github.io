@@ -76,8 +76,8 @@
                         <p class="about__text">
                             Currently, the code to be executed on GPUs is written in CUDA specifically for NVIDIA GPUs. Through a custom-built compatibility layer, the same code can run entirely on CPUs, if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce <strong>code-duplication</strong> that is <strong>not easily maintainable</strong>. A possible solution is the use of performance portability libraries, that allow the programmer to write a <strong>single source code</strong> which can be executed on different architectures.<br>
                             The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. The migration from CUDA to Alpaka at the HLT will be performed in the next few months. Despite this, studies on this kind of libraries are still ongoing and other solutions are being explored.<br>
-                            One possibility is to use <strong>Data Parallel C++ (DPC++)</strong>, an open-source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, is a cross-platform abstraction layer maintained by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.<br>
-                            At the moment DPC++ officially supports CPUs, Intel GPUs and Intel FPGAs. The support for NVIDIA and AMD GPUs is in active development, though but it's still possible to use them with the Intel's LLVM Compiler. 
+                            One possibility is to use <strong>Data Parallel C++ (DPC++)</strong>, an open-source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, a cross-platform abstraction layer maintained by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.<br>
+                            At the moment DPC++ officially supports CPUs, Intel GPUs and Intel FPGAs. The support for NVIDIA and AMD GPUs is in active development, anyway it's possible to use them with the Intel's LLVM Compiler. 
                         </p>           
                     </div>                           
                 </div>
@@ -89,10 +89,10 @@
                 <div class="about__container bd-grid">
                     <div>
                         <p class="about__text">
-                            Since, as already stated, the first version of the code that is supposed to run on GPU was written in CUDA, the first step in the study of SYCL/oneAPI consisted in the porting from CUDA to SYCL of two algorithms:
+                            Starting from code written in CUDA, the first step in the study of SYCL/oneAPI consisted in writing a SYCL version of two algorithms:
                             <ol>
                                 <li><a href="#clue"><strong>CLUE (CLUstering of Energy)</strong></a>: a fast parallel clustering algorithm for high granularity calorimeters that follows a density-based approach to link each hit with its nearest neighbour with higher energy density;</li>
-                                <li><a href="#pixeltrack"><strong>pixeltrack</strong></a>: a heterogeneous implementation of pixel tracks and vertices reconstruction chain, starting from the detector raw data, creating clusters, then n-tuplets that then are fitted to obtain tracks and at last those are used to reconstruct the vertices.</li>
+                                <li><a href="#pixeltrack"><strong>pixeltrack</strong></a>: a heterogeneous implementation of pixel tracks and vertices reconstruction chain, starting from the detector raw data, creating clusters, then n-tuplets that are fitted to obtain tracks, used to reconstruct the vertices.</li>
                             </ol>
                             To ease the process of porting the code from CUDA to SYCL, Intel made available the Data Parallel Compatibility Tool (DPCT). It was used partially at the beginning to gain confidence with the SYCL language and turned out to be helpful even though its output code still needed revision.
                             During the porting we had the possibility to explore SYCL and to compare it with CUDA. The main logic is the same, but there are some <strong>differences</strong>:
@@ -124,7 +124,7 @@
                             To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
                             The plots show the total throughput for different numbers of concurrent threads/streams.<br>
                             At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor. Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka.<br>
-                            The results look really promising, showing that SYCL is able to reach an higher throughput than native CUDA.<br>
+                            The results look really promising, showing that SYCL is able to reach a higher throughput than native CUDA.<br>
                             <br>
                             To conclude, heterogeneous computing can be a solution to face the computational challenge and a compatibility layer will help in reproducibility of the results and code maintainability. SYCL is promising from this point of view and the first tests show a really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
                         </p>           
