@@ -45,6 +45,7 @@
             <!--===== Heterogeneous =====-->
             <section class="about section " id="heterogeneous">
                 <h2 class="section-title">Heterogenous computing at the CMS experiment</h2>
+                <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px">  
                 <div class="about__container bd-grid">
                     <div>
                         <p class="about__text">
@@ -68,6 +69,7 @@
             <!--===== Portability =====-->
             <section class="about section " id="portability">
 		    <h2 class="section-title">Performance portability libraries</h2>
+            <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                 <div class="about__container bd-grid">
                     <div class="about__img">
                         <img src="./img/dpcpp.png" alt="">
@@ -86,6 +88,7 @@
             <!--===== Porting =====-->
             <section class="about section " id="porting">
                 <h2 class="section-title">From CUDA to SYCL</h2>
+                <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                 <div class="about__container bd-grid">
                     <div>
                         <p class="about__text">
@@ -114,6 +117,7 @@
             <!--===== Performance =====-->
             <section class="about section " id="performance">
                 <h2 class="section-title">Performance tests and conclusions</h2>
+                <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                 <div class="about__container bd-grid">
                     <div class="about__img">
                         <img src="./img/performance_T4.png" alt="">
@@ -126,7 +130,7 @@
                             At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor. Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka.<br>
                             The results look really promising, showing that SYCL is able to reach a higher throughput than native CUDA.<br>
                             <br>
-                            To conclude, heterogeneous computing can be a solution to face the computational challenge and a compatibility layer will help in reproducibility of the results and code maintainability. SYCL is promising from this point of view and the first tests show a really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
+                            To conclude, heterogeneous computing can be a solution to face the computational challenge and a compatibility layer will help in reproducibility of the results and code maintainability. SYCL is promising from this point of view and the first tests show really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
                         </p>           
                     </div>  
                 </div>
@@ -135,13 +139,14 @@
             <!--===== References and links =====-->
             <section class="about section " id="link">
                 <h2 class="section-title">References</h2>
+                <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                     <div>
                         <p>
                             <ol>
                                 <li id="pixeltrack">pixeltrack-standalone - <a href="https://github.com/AuroraPerego/pixeltrack-standalone/tree/dev">GitHub repo</a></li>
-                                <li>pixeltrack-standalone - <a href="https://arxiv.org/pdf/2008.13461.pdf">paper</a></li>
+                                <li>pixeltrack-standalone - <a href="https://doi.org/10.3389/fdata.2020.601728">paper</a></li>
                                 <li id="clue">heterogeneous clue - <a href="https://github.com/cms-patatrack/heterogeneous-clue">GitHub repo</a></li>
-                                <li>heterogeneous clue - <a href="https://arxiv.org/pdf/2001.09761.pdf">paper</a></li>
+                                <li>heterogeneous clue - <a href="https://doi.org/10.3389/fdata.2020.591315">paper</a></li>
                                 <li><a href="https://patatrack.web.cern.ch/patatrack/wiki/cuda2sycl_rules/">porting CUDA to SYCL guide</a></li>
                                 <li><a href="https://link.springer.com/book/10.1007/978-1-4842-5574-2">DataParallel C++</a></li>
                             </ol>
@@ -151,14 +156,16 @@
             <!--===== FOOTER =====-->
         <footer class="footer">
             <p class="footer__title">Authors</p>
-	    <p class="about__text"> Nikolaos Andriotis<sup>1</sup>, Andrea Bocci<sup>2</sup>, Tony Di Pilato<sup>2,3</sup>, Luca Ferragina<sup>4</sup>, Felice Pantaleo<sup>2</sup>, <strong>Aurora Perego</strong><sup>5</sup>, Juan Jose Olivera Loyola<sup>6</sup>, Wahid Redjeb<sup>2,7</sup><br><br>
+	    <p class="about__text"> Nikolaos Andriotis<sup>1</sup>, Andrea Bocci<sup>2</sup>, Laura Cappelli<sup>3</sup>, Tony Di Pilato<sup>4,9</sup>, Luca Ferragina<sup>5</sup>, Juan Jose Olivera Loyola<sup>6</sup>, Felice Pantaleo<sup>2</sup>, <strong>Aurora Perego</strong><sup>7</sup>, Wahid Redjeb<sup>2,8</sup><br><br>
             <sup>1</sup>Barcelona Supercomputing Center, Spain<br>
-            <sup>2</sup>CERN<br>
-            <sup>3</sup>CASUS?<br>
-            <sup>4</sup>University of Bologna, Italy<br>
-            <sup>5</sup>University of Milano Bicocca, Italy<br>
+            <sup>2</sup>CERN, Switzerland<br>
+            <sup>3</sup>INFN Bologna, Italy<br>
+            <sup>4</sup>Center for Advanced Systems Understanding (CASUS)<br>
+            <sup>5</sup>University of Bologna, Italy<br>
             <sup>6</sup>Institute of Technology and Higher Studies of Monterrey, Mexico<br>
-            <sup>7</sup>RWTH Aachen University, Germany<br>
+            <sup>7</sup>University of Milano Bicocca, Italy<br>
+            <sup>8</sup>RWTH Aachen University, Germany<br>
+            <sup>9</sup>University of Geneva, Switzerland<br>
         </p>
             <div class="footer__social">
                 <a href="https://github.com/cms-patatrack" class="footer__icon"><i class='bx bxl-github' ></i></a>
