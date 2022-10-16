@@ -339,9 +339,12 @@ img{
     width: 500px;
   }
   .work__container{
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2,1fr);
-    column-gap: 2rem;
+    align-items: center;
+    text-align: justify;
+    grid-template-columns: auto auto auto ;
+  }
+  .work__img img{
+    width: 400px;
   }
   .contact__form{
     width: 360px;
