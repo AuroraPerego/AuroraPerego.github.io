@@ -107,6 +107,12 @@ img{
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
 }
+.bd-grid2{
+  max-width: 1500px; /*text width*/
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
 .l-header{
   width: 100%;
   position: fixed;
@@ -256,15 +262,13 @@ img{
 }
 .about__img{
   justify-self: center;
-  width: 100%;
 }
 .about__text{
   text-align: justify;
 }
 .about__img img{
   /* max-height: 500px; */
-  justify-self: center;
-  max-width: 80%;
+  max-width: 600px;
   object-fit: contain;
   border-radius: .5rem;
 }
@@ -347,6 +351,13 @@ img{
     align-items: center;
     justify-content: center;
     text-align: justify;
+  }
+  .about__container2{
+    display: grid;
+    text-align: justify;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
   }
   .about__img img{
     width: 100%;

@@ -100,7 +100,7 @@
                 <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                 <div class="about__container bd-grid">
                     <div>
-                        <p class="about__text bd-grid">
+                        <p class="about__text">
                             Starting from code written in CUDA, the first step in the study of SYCL/oneAPI consisted in writing a SYCL version of two algorithms:
                             <ul>
                                 <li><a href="#clue"><strong>CLUE (CLUstering of Energy)</strong></a>: a fast parallel clustering algorithm for high granularity calorimeters that follows a density-based approach to link each hit with its nearest neighbour with higher energy density;</li>
@@ -127,16 +127,18 @@
             <section class="about section " id="performance">
                 <h2 class="section-title">Performance tests and conclusions</h2>
                 <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
-                <p class="about__text bd-grid">
-                    The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs. On the other hand CLUE has been fully ported and tested. 
-                    To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
-                    The plots show the total throughput for different numbers of concurrent threads/streams.<br>
-                    <ul>
-                        <li>At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
-                        <li>Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka. The results look really promising, showing that SYCL is able to reach a throughput similar to native CUDA.</li>
-                    </ul>
-                    <br>
-                </p>           
+                <div class="about__container2 bd-grid">
+                    <p class="about__text">
+                        The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs. On the other hand CLUE has been fully ported and tested. 
+                        To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
+                        The plots show the total throughput for different numbers of concurrent threads/streams.<br>
+                        <ul>
+                            <li>At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
+                            <li>Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka. The results look really promising, showing that SYCL is able to reach a throughput similar to native CUDA.</li>
+                        </ul>
+                        <br>
+                    </p> 
+                </div>          
                 <div class="work__container bd-grid">
                     <div class="work__img">
                         <img src="./img/performance_intel.png" alt="">
