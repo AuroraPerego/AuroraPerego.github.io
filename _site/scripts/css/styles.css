@@ -367,6 +367,19 @@ img{
     width: 500px;
   }
 }
+@media screen and (max-width: 550px){
+  .nav__logo{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px){
+  .about__img img{
+    width: 100%;
+  }
+  .work__img img{
+    width: 100%;
+  }
+}
 @media screen and (min-width: 800px){
   .nav{
     height: calc(var(--header-height) + 1rem);
