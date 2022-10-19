@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 /*===== VARIABLES CSS =====*/
 :root{
-  --header-height: 3rem;
+  --header-height: 3.5rem;
   --font-semi: 600;
 }
 
@@ -139,7 +139,7 @@ img{
 
 @media screen and (max-width: 1300px){
   .nav{
-    grid-template-columns: 165px auto;
+    grid-template-columns: 165px auto auto;
     justify-content: left;
     align-items: center;
   }
@@ -150,6 +150,7 @@ img{
     width: 80%;
     height: 100%;
     padding: 2rem;
+    background-color: var(--second-color);
     transition: .5s;
   }
 }

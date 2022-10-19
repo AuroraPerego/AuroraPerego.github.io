@@ -29,6 +29,10 @@
                         <li class="nav__item"><a href="#link" class="nav__link">Reference</a></li>
                     </ul>
                 </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
             </nav>
         </header>
 
@@ -133,7 +137,7 @@
                         To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
                         The plots show the total throughput for different numbers of concurrent threads/streams.<br>
                         <ul>
-                            <li>At first we tested it on Intel CPU and GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
+                            <li>At first we tested it on an Intel Xeon Gold 6336Y CPU and an <a href="https://openlab-systems.web.cern.ch/gpu/ats-p/">Intel Arctic Sound P GPU</a>, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
                             <li>Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka. The results look really promising, showing that SYCL is able to reach a throughput similar to native CUDA.</li>
                         </ul>
                         <br>
@@ -173,7 +177,7 @@
             <!--===== FOOTER =====-->
         <footer class="footer">
             <p class="footer__title">Authors</p>
-	    <p class="author__text"> Nikolaos Andriotis<sup>1</sup>, Andrea Bocci<sup>2</sup>, Laura Cappelli<sup>3</sup>, Tony Di Pilato<sup>4,9</sup>, Luca Ferragina<sup>5</sup>, Juan Jose Olivera Loyola<sup>6</sup>, Felice Pantaleo<sup>2</sup>, <strong>Aurora Perego</strong><sup>7</sup>, Wahid Redjeb<sup>2,8</sup><br><br>
+	    <p class="author__text">Nikolaos Andriotis<sup>1</sup>, Andrea Bocci<sup>2</sup>, Laura Cappelli<sup>3</sup>, Tony Di Pilato<sup>4,9</sup>, Luca Ferragina<sup>5</sup>, Juan Jose Olivera Loyola<sup>6</sup>, Felice Pantaleo<sup>2</sup>, <strong>Aurora Perego</strong><sup>7</sup>, Wahid Redjeb<sup>2,8</sup><br><br>
             <sup>1</sup>Barcelona Supercomputing Center, Spain<br>
             <sup>2</sup>CERN, Switzerland<br>
             <sup>3</sup>INFN Bologna, Italy<br>
@@ -191,6 +195,8 @@
 
         <!--===== MAIN JS =====-->
         <script src="./scripts/js/main.js"></script>
+
+        <script type="text/javascript" src="./script/js/app.js"></script>
    
     </body>
 </html>
