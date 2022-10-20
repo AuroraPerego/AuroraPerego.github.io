@@ -49,8 +49,8 @@
                 <div class="about__container bd-grid">
                     <div>
                         <p class="about__text">
-                            In the High-Luminosity phase of the LHC (HL-LHC) the accelerator will reach an instantaneous luminosity of 7 × 10<sup>34</sup> cm<sup>-2</sup>s<sup>-1</sup> with an average pileup of 200 proton-proton collisions. This will lead to a <strong>computational challenge</strong> for the online and offline reconstruction software that have been developed. To face this complexity CMS has decided to use <strong>heterogeneous computing</strong>, meaning that different types of architectures will be used instead of CPUs only.<br>
-                            To accomplish this task, before the start of Run-3 the CMS experiment has equipped the HLT nodes with <a href="https://www.nvidia.com/en-us/data-center/tesla-t4/">NVIDIA Tesla T4 GPUs</a> that are currently used in production for:
+                            In the High-Luminosity phase of the LHC (HL-LHC) the accelerator will reach an instantaneous luminosity of 7 × 10<sup>34</sup> cm<sup>-2</sup>s<sup>-1</sup> with an average pileup of 200 proton-proton collisions. This will lead to a <strong>computational challenge</strong> for the online and offline reconstruction software that has been and will be developed. To face this complexity CMS has decided to leverage <strong>heterogeneous computing</strong>, meaning that accelerators will be used instead of CPUs only. 
+                            To be prepared for Run 4, CMS equipped the current Run 3 production HLT nodes with <a href="https://www.nvidia.com/en-us/data-center/tesla-t4/">NVIDIA Tesla T4 GPUs</a> that are currently used for:
                             <ul>
                               <li>pixel unpacking, local reconstruction, tracks and vertices</li>
                               <li>ECAL unpacking and local reconstruction</li>
@@ -61,7 +61,7 @@
                               <li><strong>higher throughput</strong> thanks to the use of accelerators;</li>
                               <li><strong>better physics performance</strong> due to the fundamental redesign of the algorithms to fully exploit the parallelism capabilities of GPUs.</li>
                             </ul>
-                            The goal for the HL-LHC is to offload at least 50% of the HLT computations to GPUs in Run-4 scaling up to 80% in Run-5.
+                            The goal for the HL-LHC is to offload at least 50% of the HLT computations to GPUs in Run 4 scaling up to 80% in Run 5.
                         </p>           
                     </div>  
                 </div>                                   
@@ -76,11 +76,11 @@
                     </div>   
                     <div>
                         <p class="about__text">
-                            Currently, the code to be executed on GPUs is written in CUDA specifically for NVIDIA GPUs. Through a custom-built compatibility layer, the same code can run entirely on CPUs, if no GPU is available. In this way, to offload the computational work on different non-CPU resources, different implementations of the same code are required. This approach should be avoided because it would introduce <strong>code-duplication</strong> that is <strong>not easily maintainable</strong>. A possible solution is the use of performance portability libraries, that allow the programmer to write a <strong>single source code</strong> which can be executed on different architectures.
+                            Currently, the code to be executed on GPUs is written in CUDA specifically for NVIDIA GPUs. This approach should be avoided because it would introduce <strong>code-duplication</strong> that is <strong>not easily maintainable</strong>. A possible solution is the use of performance portability libraries, that allow the programmer to write a <strong>single source code</strong> which can be executed on different architectures.
                             <offi>
                                 <li style="color:white;"></li>
                             </offi>
-                            The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run-3. The migration from CUDA to Alpaka at the HLT will be performed in the next few months. Despite this, studies on this kind of libraries are still ongoing and other solutions are being explored.<br>
+                            The CMS experiment has evaluated some performance portability libraries and Alpaka has been chosen for Run 3. The migration from CUDA to Alpaka at the HLT will be completed during 2023. Despite this, studies on this kind of libraries are still ongoing and other solutions are being explored.<br>
                             One possibility is to use <strong>Data Parallel C++ (DPC++)</strong>, an open-source compiler project developed by Intel, that is part of the oneAPI programming model. DPC++ is based on SYCL, a cross-platform abstraction layer maintained by Khronos Group that allows code to be written using standard ISO C++ both for the host and the device in the same source file.<br>
                             At the moment DPC++ supports:
                             <off>
@@ -133,7 +133,7 @@
                 <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
                 <div class="about__container2 bd-grid">
                     <p class="about__text">
-                        The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs. On the other hand CLUE has been fully ported and tested. 
+                        The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs (see below for information about the models). On the other hand CLUE has been fully ported and tested. 
                         To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
                         The plots show the total throughput for different numbers of concurrent threads/streams.<br>
                         <ul>
@@ -152,7 +152,7 @@
                     </div>               
                 </div>  
                 <p class="about__text bd-grid">
-                To conclude, heterogeneous computing can be a solution to face the computational challenge and a compatibility layer will help in reproducibility of the results and code maintainability, reaching about the same throughput as the native implementation. SYCL is promising from this point of view and the first tests show really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
+                Heterogeneous computing can be a solution to face the HL-LHC computational challenge for CMS online and a compatibility layer will help in reproducibility of the results and code maintainability, reaching about the same throughput as the native implementation. SYCL is promising from this point of view and the first tests show really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
                 Future plans include more performance studies on SYCL and the completion of the SYCL backend of Alpaka. 
                 </p>
             </section>
@@ -164,6 +164,7 @@
                     <div>
                         <p>
                             <ol>
+                                <li><a href="https://cds.cern.ch/record/2759072/files/CMS-TDR-022.pdf">CMS DAQ and HLT TDR</a></li>
                                 <li id="pixeltrack">pixeltrack-standalone - <a href="https://github.com/AuroraPerego/pixeltrack-standalone/tree/dev">GitHub repo</a></li>
                                 <li>pixeltrack-standalone - <a href="https://doi.org/10.3389/fdata.2020.601728">paper</a></li>
                                 <li id="clue">heterogeneous clue - <a href="https://github.com/cms-patatrack/heterogeneous-clue">GitHub repo</a></li>
@@ -196,7 +197,7 @@
         <!--===== MAIN JS =====-->
         <script src="./scripts/js/main.js"></script>
 
-        <script type="text/javascript" src="./script/js/app.js"></script>
+        <script type="text/javascript" src="./scripts/js/app.js"></script>
    
     </body>
 </html>
