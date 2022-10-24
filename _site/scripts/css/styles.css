@@ -95,6 +95,10 @@ img{
   padding-top: 0;
   padding-bottom: 0;
 }
+.section2{
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 /*===== LAYOUT =====*/
 .bd-grid{
@@ -356,9 +360,13 @@ img{
   body{
     margin: 0;
   }
-  .section{
+  .section2{
     padding-top: 4rem;
-    padding-bottom: 3rem;
+    padding-bottom: 0.5rem;
+  }
+  .section{
+    padding-top: 0;
+    padding-bottom: 0.5rem;
   }
   .section-title{
     margin-bottom: var(--mb-1);
