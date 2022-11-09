@@ -137,30 +137,31 @@
             <section class="about section " id="performance">
                 <h2 class="section-title">Performance tests and conclusions</h2>
                 <hr style="height:0.25rem;background-color:#4070F4;color:#4070F4;width:100px"> 
-                <div class="about__container2 bd-grid">
-                    <p class="about__text">
-                        The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs (see below for information about the models). On the other hand CLUE has been fully ported and tested. 
-                        To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
-                        The plots show the total throughput for different numbers of concurrent threads/streams.<br>
-                        <ul>
-                            <li>At first we tested it on an Intel Xeon Gold 6336Y CPU and an <a href="https://openlab-systems.web.cern.ch/gpu/ats-p/">Intel Arctic Sound P GPU</a>, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
-                            <li>Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka. The results look really promising, showing that SYCL is able to reach a throughput similar to native CUDA.</li>
-                        </ul>
-                        <br>
-                    </p> 
-                </div>          
-                <div class="work__container bd-grid">
-                    <div class="work__img">
-                        <img src="./img/performance_intel.png" alt="">
-                    </div>                                 
-                    <div class="work__img">
+                <div class="about__container bd-grid">
+                    <div class="about__img">
                         <img src="./img/performance_T4.png" alt="">
-                    </div>               
-                </div>  
-                <p class="about__text bd-grid">
-                Heterogeneous computing can be a solution to face the HL-LHC computational challenge for CMS online and a compatibility layer will help in reproducibility of the results and code maintainability, reaching about the same throughput as the native implementation. SYCL is promising from this point of view and the first tests show really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
-                Future plans include more performance studies on SYCL and the completion of the SYCL backend of Alpaka. 
-                </p>
+                    </div> 
+                    <div>             
+                        <p class="about__text">
+                            The porting of pixeltrack is still ongoing, but we are able to successfully run the code both on Intel CPUs and Intel GPUs (see below for information about the models). On the other hand CLUE has been fully ported and tested. 
+                            To carry out the tests, we used a synthetic dataset that simulates the expected conditions in high granularity calorimeters operated at HL-LHC. It represents a calorimeter with 100 sensor layers. 10000 points have been generated on each layer such that the density represents circular clusters of energy whose magnitude decreases radially from the centre of the cluster according to a Gaussian distribution with the standard deviation, σ, set to 3 cm. 5% of the points represent noise distributed uniformly over the layers. 
+                            The plots show the total throughput for different numbers of concurrent threads/streams.<br>
+                            <ul>
+                                <li>At first we tested it on an Intel Xeon Gold 6336Y CPU and an Intel GPU, showing that there is an actual gain in performance using the accelerator with respect to the traditional processor.</li>
+                                <li>Then we also tested it on a TESLA T4 NVIDIA GPU and compared its performance with native CUDA and Alpaka. The results look really promising, showing that SYCL is able to reach a throughput similar to native CUDA.</li>
+                            </ul>
+                            <!-- </p> 
+                            <div class="work__container bd-grid">
+                                <div class="work__img">
+                                    <img src="./img/performance_intel.png" alt="">
+                                </div>                                 
+                            </div>  
+                            <p class="about__text bd-grid"> -->
+                            Heterogeneous computing can be a solution to face the HL-LHC computational challenge for CMS online and a compatibility layer will help in reproducibility of the results and code maintainability, reaching about the same throughput as the native implementation. SYCL is promising from this point of view and the first tests show really good performance, but it's not yet ready for a full-scale implementation since some features are still under development. 
+                            Future plans include more performance studies on SYCL and the completion of the SYCL backend of Alpaka. 
+                        </p>
+                    </div> 
+                </div>          
             </section>
 
             <!--===== References and links =====-->
